@@ -57,7 +57,7 @@ function winAnimation()
     $('#modalWinner').modal({show : true});
     $('.amount').hide();
     $('.preloader-wrapper').hide();
-    $('.scanReceiptMsg').show();
+    $('.scanReceiptMsg').html('Purchase more and scan again.').show();
     $('#receiptId').val('');
 }
 

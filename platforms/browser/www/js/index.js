@@ -60,7 +60,9 @@ $(function(){
                     $('.amount').hide();
                     $('.preloader-wrapper').show();
                     $('.scanReceiptMsg').hide();
-                    setTimeout(function () {                            
+                    setTimeout(function () {   
+                        var r = Math.floor(Math.random() * 100) + 102;
+                        $('.amount span').html(r);                         
                         $('.amount').show();
                         $('.preloader-wrapper').hide();
                         $('.scanReceiptMsg').hide();
