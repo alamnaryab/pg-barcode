@@ -1,0 +1,64 @@
+.strong,.bold{font-weight: bold;}
+main{min-height:calc(100vh - 56px);}
+.minlheight{line-height:1em;}
+.txtFluid{
+    border:0px;
+    width:40px;
+}
+
+.ac-wrapper{position:relative;width:100%;}
+.ac-dd{
+    position: absolute;
+    top: 34px;
+    background: #FFF;
+    width: 100%;
+    max-height:300px;
+    min-height:200px;
+    display:none;
+}
+.ac-dd a{display:block;font-size: 80%;font-weight: 400;padding:10px;}
+.ac-dd a:hover{
+    background-color:#4285f4;
+    color:#FFF;
+    box-shadow:-1px 1px 2px #CCC;
+}
+.btn-floating.btn-sm.btn-clearFilter{
+    position:absolute;
+    right:3px;
+    top:4px;
+    margin:0px;
+    width:30px;
+    height:30px;
+}
+.btn-floating.btn-sm.btn-clearFilter i.fa{
+    margin-top:-3px;
+}
+
+table.table.tbl-payment th,
+table.table.tbl-payment td{
+    padding-top:1px;
+    padding-bottom:1px;
+}
+.btns-round{
+    display: inline-block;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.btns-round .btns{
+    display: inline-block;
+    padding:2px 5px;
+    border:1px solid #DDD;
+    border-radius: 3px;
+    margin-left:5px;
+}
+.btns-round .btns:hover{
+    background: #4285f4;
+    color: #FFF;
+}
+input[readonly]{
+    background: #EEE;
+    border:1px solid #DDD;
+}

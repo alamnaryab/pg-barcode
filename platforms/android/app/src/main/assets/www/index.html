@@ -1,37 +1,205 @@
-<!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
-    <!-- Good default declaration:
-    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-        * Enable eval(): add 'unsafe-eval' to default-src
-    * Create your own at http://cspisawesome.com
-    -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/fa.all.css" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/mdb.css" type="text/css" />
+    <style>
+    body{
+        background: #EEE;
+    }
+    .canvas-wrapper{
+        background-image: url('img/logo4.png');
+        background-repeat: no-repeat;
+        background-size: 100px;
+        background-position: 115px 115px;
+    }
+    #canvas {
+        z-index: 1;
+    }
+    
+    #prizePointer {
+        position: absolute;
+        left: 150px;
+        width:30px;
+        top: -21px;
+        z-index: 999;
+    }
+     @media (max-height: 992px){
+        .side-nav .logo-wrapper,.side-nav .logo-wrapper a {
+            height: auto;
+        }
+    }
+    </style>
+    <script src="js/jquery.min.js"></script> 
+    <title>SPIN TO WIN</title>
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
 </head>
 
-<body>
-    <div class="app">
-        <h1>PhoneGap</h1>
+<body class="fixed-sn white-skin">
+
+        <div id="slide-out" class="side-nav sn-bg-2 fixed">
+                <ul class="custom-scrollbar">
+                    <!-- Logo -->
+                    <li>
+                        <div class="logo-wrapper waves-light text-center">
+                            <a href="#">
+                                <div class="rounded-circle d-inline-block bg-white mt-3" style="width: 170px;padding: 10px;box-shadow: 2px 2px 4px #CCC inset, -2px -2px 4px #CCC inset, 2px -2px 4px #CCC inset, -2px 2px 4px #ccc inset;">
+                                    <img class='img-fluid' src="img/logo2.png" style='height:150px;padding:5px;'>
+                                </div>
+                                
+                            </a>
+                            <span style="font-weight: bold;font-size: 30px;line-height: 90%;margin-top: 15px; display: inline-block;" 
+                                class="text-info align-middle">SPIN to WIN</span>
+                        </div>
+                        
+                    </li>
+                    <!--/. Logo -->
+                     
+                    <!--Search Form-->
+                    <li>
+                         
+                    </li>
+                    <!--/.Search Form-->
+                    <!-- Side navigation links -->
+                    <li>
+                        <ul class="collapsible collapsible-accordion ">
+                            <li id="menu-item-1" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1">
+                               <a href="#" class="text-info">Points <i class="badge badge-success float-right" style="margin-right: 15px;
+                                margin-top: 8px;">120</i></a>
+                            </li>
+                             
+                             
+                             
+                        </ul>
+                    </li>
+                    
+                    <!--/. Side navigation links -->
+    
+                </ul>
+                <div class="sidenav-bg mask-strong"></div>
+            </div>
+            <!--/. Sidebar navigation -->
+
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+        <!-- SideNav slide-out button -->
+        <div class="float-left">
+            <a href="#" data-activates="slide-out" class="button-collapse text-white"><i class="fas fa-bars"></i></a>
+        </div>
+        <!-- Breadcrumb-->
+        <a class="navbar-brand" href="#">ADCS SPIN TO WIN</a>
         
-        <button onclick="scanbarcode();" >Scan</button>
-        <input type="text" id="receiptId">
+    </nav>
+    <!-- /.Navbar -->    
+
+    <div class="container mt-3">
+         
+        <div class="card mb-3 aqua-gradient">
+            <div class="card-body">
+                <div class="form-group input-group wow shake animated mt-3" style="overflow:hidden;">
+                    
+                    <input class="form-control" type="text" id="receiptId" placeholder="Scan Receipt barcode" 
+                    value="" title="Receipt ID"> 
+                    <div class="input-group-append">
+                        <button class="btn btn-md btn-success m-0 px-3 z-depth-0 waves-effect" 
+                        onclick='scanApp.scan()' 
+                        id="btnFetchCards"> <i class="fas fa fa-barcode"></i> Scan </button>
+                    </div>                             
+                </div> 
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body text-center">
+                <p class="scanReceiptMsg">Please scan receipt</p>
+                <div class="preloader-wrapper active" style="display:none;">
+                    <div class="spinner-layer spinner-blue-only">
+                        <div class="circle-clipper left">
+                        <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                        <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                        <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="amount" style="display: none;">Receipt amount: 214 AED
+                    <button class="btn btn-info btn-spin waves effect" onClick="calculatePrize();"> 
+                        <i class="fa fa-redo"></i> Spin To Win</button>
+                </div>
+            </div>
+        </div> 
+
+        <div class="card mb-3 blue-gradient">
+            <div class="card-body text-center">
+                    <div class="position-relative d-inline-block canvas-wrapper">
+                            <canvas id='myCanvas' width='330' height='330'
+                                    data-responsiveMinWidth="180"
+                                    data-responsiveScaleHeight="true"  
+                                    data-responsiveMargin="50"
+                                >
+                                Not supported on your device.
+                            </canvas>
+                            <img id="prizePointer" src="img/basic_pointer.png" alt="V" />
+        
+                        </div>
+                          
+                        
+            </div>
+        </div><!--.card-->
+
     </div>
+    
+     
+
+
+    <div class="modal modal-fluid fade bottom" id="modalWinner"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-full-height modal-bottom modal-notify modal-success" role="document">
+              <!--Content-->
+              <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                  <h3 class="text-white text-center">Congratilations!</h3>
+        
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="white-text">×</span>
+                  </button>
+                </div>
+        
+                <!--Body-->
+                <div class="modal-body">
+                  <div class="text-center check-wrapper text-success">
+                    <i class="fas fa-smile-wink fa-4x mb-3 animated rotateIn"></i>
+                  </div>
+                   <h2 class="text-center">You have won: <span class="winning-amount">50 AED</span></h2>
+                </div>
+        
+                <!--Footer-->
+                <div class="modal-footer text-center">                  
+                    <div class="text-center">Purchase more and WIN more.</div>
+                </div>
+              </div>
+              <!--/.Content-->
+            </div>
+          </div>
+
+
+ 
+
+
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    
+    <script src="js/TweenMax.min.js"></script>
+    <script src="js/Winwheel.js"></script>
+    <script src="js/mdb.js"></script>
+    <script src="js/spin2win.js"></script>
+    <script src="js/index.js" type="text/javascript"></script>
     <script type="text/javascript">
         app.initialize();
     </script>

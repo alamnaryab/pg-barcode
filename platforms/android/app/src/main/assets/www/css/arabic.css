@@ -1,0 +1,42 @@
+@font-face {
+    font-family: arabic;
+    src: url(../webfonts/DubaiW23-Medium.woff) format("woff"),
+        url(../webfonts/DubaiW23-Medium.woff2) format("woff2"),
+        url(../webfonts/DubaiW23-Medium.ttf) format("truetype");
+  }
+
+  body{
+      font-family: arabic;
+      text-align: right;
+  }
+  .side-nav a {
+      padding-right: 20px;
+      direction: rtl;
+  }
+  .float-right{
+      float:left!important;
+  }
+  .float-left{
+    float:right!important;
+  }
+  main.rtl .cascading-admin-card .admin-up .data {
+        float: left;
+        text-align: left;
+    }
+
+    main.rtl .input-group>.input-group-append>.btn{
+        border-top-right-radius: 0!important;
+        border-bottom-right-radius: 0!important;        
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    main.rtl .input-group>.custom-select:not(:last-child), .input-group>.form-control:not(:last-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    div.dataTables_wrapper div.dataTables_filter {
+        text-align: left; 
+    }
