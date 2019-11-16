@@ -55,21 +55,16 @@ $(function(){
     $("#btnScan").click(function(){
         cordova.plugins.barcodeScanner.scan(
             function (result) {
-                $('.scanReceiptMsg').html('16');
                     resetWheel();
-                    $('.scanReceiptMsg').html('18');
                     document.getElementById('receiptId').value=result.text;
-                    $('.scanReceiptMsg').html('20');
                     $('.amount').hide();
                     $('.preloader-wrapper').show();
                     $('.scanReceiptMsg').hide();
-                    $('.scanReceiptMsg').html('24');
                     setTimeout(function () {                            
                         $('.amount').show();
                         $('.preloader-wrapper').hide();
-                        //$('.scanReceiptMsg').hide();
+                        $('.scanReceiptMsg').hide();
                     }, 5000);
-                    $('.scanReceiptMsg').show().html('30');
             },
             function (error) {
                 alert("Scanning failed: " + error);
