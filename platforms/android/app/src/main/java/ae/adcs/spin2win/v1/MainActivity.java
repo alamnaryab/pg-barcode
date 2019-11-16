@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.phonegap.helloworld;
+package ae.adcs.spin2win.v1;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

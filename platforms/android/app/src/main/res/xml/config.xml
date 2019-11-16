@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="ae.adcs.spin2win.v1" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <feature name="Battery">
         <param name="android-package" value="org.apache.cordova.batterystatus.BatteryListener" />
     </feature>
@@ -38,12 +38,12 @@
     <feature name="BarcodeScanner">
         <param name="android-package" value="com.phonegap.plugins.barcodescanner.BarcodeScanner" />
     </feature>
-    <name>helloworld</name>
+    <name>Spin to Win</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Aldhafra Cooperative Society
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="alamnaryab@gmail.com" href="http://www.alampk.com">
+        Alam
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -53,12 +53,12 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
-    <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
-    <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />
-    <icon density="xhdpi" src="www/res/icon/android/drawable-xhdpi-icon.png" />
-    <icon density="xxhdpi" src="www/res/icon/android/drawable-xxhdpi-icon.png" />
-    <icon density="xxxhdpi" src="www/res/icon/android/drawable-xxxhdpi-icon.png" />
+    <icon density="ldpi" src="www/img/logo4.png" />
+    <icon density="mdpi" src="www/img/logo4.png" />
+    <icon density="hdpi" src="www/img/logo4.png" />
+    <icon density="xhdpi" src="www/img/logo4.png" />
+    <icon density="xxhdpi" src="www/img/logo4.png" />
+    <icon density="xxxhdpi" src="www/img/logo4.png" />
     <splash density="land-ldpi" src="www/res/screen/android/drawable-land-ldpi-screen.png" />
     <splash density="land-mdpi" src="www/res/screen/android/drawable-land-mdpi-screen.png" />
     <splash density="land-hdpi" src="www/res/screen/android/drawable-land-hdpi-screen.png" />

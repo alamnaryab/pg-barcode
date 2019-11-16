@@ -1,11 +1,11 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "helloworld",
-  "short_name": "helloworld",
-  "version": "com.phonegap.helloworld",
-  "description": "Hello World sample application that responds to the deviceready event.",
-  "author": "PhoneGap Team",
+  "name": "Spin to Win",
+  "short_name": "Spin to Win",
+  "version": "ae.adcs.spin2win.v1",
+  "description": "Aldhafra Cooperative Society",
+  "author": "Alam",
   "icons": [],
   "orientation": "portrait",
   "start_url": "index.html"
